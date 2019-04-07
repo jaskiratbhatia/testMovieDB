@@ -27,4 +27,16 @@ public class ServerResponse {
 		return "Status code returned " + statusCode +
 				" Response JSON " + jsonResponse;
 	}
+	
+
+	 /**
+	 * TODO: save the response in a file in format MovieId,ExpectedResponse
+	 * Wrtie this method which will read this file or upload in memory and compare the result.
+	 * @param movieId
+	 * @param responseRecieved
+	 * @return
+	 */
+	public boolean validateResponse(Integer movieId,String responseRecieved) {
+		return true;
+	}
 }

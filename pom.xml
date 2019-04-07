@@ -22,4 +22,15 @@
   		<scope>test</scope>
 	</dependency>
   </dependencies>
+  <build>
+   <resources>          
+   	<resource>
+    <filtering>false</filtering>
+    <directory>src/main/java/resources</directory>
+    <includes>
+        <include>**/*.properties</include>
+    </includes>
+	 </resource>
+    </resources>              
+   </build>
 </project>

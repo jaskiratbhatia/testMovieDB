@@ -26,10 +26,8 @@ public class ConfigProperties {
 	
 	private ConfigProperties() throws IOException {
 		try {
-			String propFileName = "resources/config.properties";
-			inputStream = getClass().getClassLoader()
-									.getResourceAsStream(propFileName);
- 
+			String propFileName = "/config.properties";
+			inputStream = getClass().getResourceAsStream(propFileName);
 			if (inputStream != null) {
 				this.prop.load(inputStream);
 			} else {
