@@ -24,7 +24,6 @@ public class APIBaseClass {
 		
 		//TODO: fix it. This can throw NPE.
 		Properties p = prop.getProperties();
-		System.out.println("jas");
 		if(Server_URL == null) {
 			Server_URL = p.getProperty("url");
 		}

@@ -41,7 +41,6 @@ public class HttpUtil {
 		ServerResponse response = null;
 		try{
 			URL url = new URL(urlString);
-			System.out.println("url is " + url);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -60,9 +59,7 @@ public class HttpUtil {
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					(in)));
 			String output = null;
-			System.out.println("Output from Server .... \n");
 			while ((output = br.readLine()) != null) {
-				System.out.println(output);
 				result+=output;
 			}
 			response = new ServerResponse(conn.getResponseCode(), result);

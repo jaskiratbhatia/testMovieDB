@@ -36,8 +36,6 @@ public class ConfigProperties {
 			}
   
 			// get the property value and print it out
-			System.out.println("url " + prop.getProperty("url"));
-			System.out.println("apiKey " + prop.getProperty("apikey"));			
 			
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);

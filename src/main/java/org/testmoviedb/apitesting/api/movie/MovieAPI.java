@@ -37,7 +37,6 @@ public class MovieAPI extends APIBaseClass {
 	 */
 	public ServerResponse getCreditFor(String movieId) {
 		String URL = buildUrl(movieId, API_KEY, MovieMethods.CREDIT).toString();
-		System.out.println("my URL " + URL);
 		
 		ServerResponse response = httpClient.getHttpResponse(URL);
 		
@@ -54,7 +53,6 @@ public class MovieAPI extends APIBaseClass {
 	public ServerResponse getCreditFor(String movieId, String apiKey) {
 		String URL = buildUrl(movieId, apiKey, MovieMethods.CREDIT).toString();
 		
-		System.out.println("my URL " + URL);
 		
 		ServerResponse response = httpClient.getHttpResponse(URL);
 		
