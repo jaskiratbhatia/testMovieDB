@@ -1,6 +1,6 @@
 # testMovieDB
 # How To run this?
-Download this project or run clone
+Download this project or run clone. Add you APIKey in src/main/java/resources/config.properties.
 Run "mvn test"
 
 # prerequisite
