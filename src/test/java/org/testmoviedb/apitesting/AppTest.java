@@ -21,7 +21,7 @@ public class AppTest
 		Integer movieId = 550;
 		ServerResponse res = new MovieAPI().getCreditFor(movieId.toString());
 		Assert.assertEquals(res.getStatusCode(), 200);
-		Assert.assertTrue(res.validateResponse(movieId, res.getJsonResponse()));
+		Assert.assertTrue(res.validateResponse(movieId));
     }
 	
 	/**
@@ -31,7 +31,7 @@ public class AppTest
 	public void testMovieCreditForInvalidId() {
 		ServerResponse res = new MovieAPI().getCreditFor("5555555559999999");
 		Assert.assertEquals(res.getStatusCode(), 404);
-		Assert.assertTrue(res.validateResponse(-1, res.getJsonResponse()));
+		Assert.assertTrue(res.validateResponse(-1));
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class AppTest
 	public void testMovieCreditUsingWrongApiKey() {
 		ServerResponse res = new MovieAPI().getCreditFor("550", "ThisIsAnInvalidAPIKey");
 		Assert.assertEquals(res.getStatusCode(), 401);
-		Assert.assertTrue(res.validateResponse(-2, res.getJsonResponse()));
+		Assert.assertTrue(res.validateResponse(-2));
 	}
 	
 	/**
