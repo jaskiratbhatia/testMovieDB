@@ -12,7 +12,7 @@ public class MovieAPI extends APIBaseClass {
 	public static String movieAPIName = "movie/";
 	
 	private enum MovieMethods {
-		CREDIT, DETAILS, ACCOUNT_STATE,
+		CREDIT, DETAILS, ALTERNATE_TITLES, ACCOUNT_STATE,
 		KEYWORDS, REVIEWS, LATEST;
 				
 		public String getAPIName() {
@@ -23,6 +23,8 @@ public class MovieAPI extends APIBaseClass {
 				return null;
 			case ACCOUNT_STATE: 
 				return "/account_states?";
+			case ALTERNATE_TITLES:
+				return "/alternative_titles?";
 			default: 
 				return null;
 			}
@@ -52,8 +54,7 @@ public class MovieAPI extends APIBaseClass {
 	 */
 	public ServerResponse getCreditFor(String movieId, String apiKey) {
 		String URL = buildUrl(movieId, apiKey, MovieMethods.CREDIT).toString();
-		
-		
+				
 		ServerResponse response = httpClient.getHttpResponse(URL);
 		
 		return response;
@@ -64,14 +65,25 @@ public class MovieAPI extends APIBaseClass {
 		return null;
 	}
 	
+	public ServerResponse getAlternativeTitles(String movieId, String country) {
+		String URL = buildUrl(movieId, API_KEY, MovieMethods.ALTERNATE_TITLES).toString();
+		//TODO: fix this in url builder
+		URL+="&country="+country;
+
+		ServerResponse response = httpClient.getHttpResponse(URL);
+		return response;
+	}
+		
+	private static String apikeyText = "api_key=";
 	
 	public StringBuilder buildUrl(String movieId, String apiKey, MovieMethods methodName) {
 		StringBuilder str = new StringBuilder(Server_URL);
 		str.append(movieAPIName);
 		str.append(movieId);
 		str.append(methodName.getAPIName());
-		str.append("api_key="+ apiKey);
+		str.append(apikeyText + apiKey);
 		return str;
 	}
 
 }
+

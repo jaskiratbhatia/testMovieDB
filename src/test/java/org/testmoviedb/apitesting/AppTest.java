@@ -53,5 +53,46 @@ public class AppTest
 		ServerResponse res = new MovieAPI().getCreditFor("550xxxx");
 		Assert.assertEquals(res.getStatusCode(), 404);
 	}
+	
+	@Test
+	public void testMovieCreditWithNullId() {
+		ServerResponse res = new MovieAPI().getCreditFor(null);
+		Assert.assertEquals(res.getStatusCode(), 404);
+		Assert.assertTrue(res.validateResponse(-1));
+	}
+	
+	@Test
+	public void testMovieAlternativeTile() {
+		ServerResponse res = new MovieAPI().getAlternativeTitles("500", "KR");
+		Assert.assertEquals(res.getStatusCode(), 200);
+		System.out.println("res comparred " + res.validateResponse(500));
+		Assert.assertTrue(res.validateResponse(500),"Response does not match");
+	}
+	
+	@Test(enabled=false)
+	public void testMovieAltTitleInvalidCountryCode() {
+		
+	}
+	
+	@Test(enabled=false)
+	public void testMovieAltTitleNullAsCountryCode() {
+		
+	}
+	
+	@Test(enabled=false)
+	public void testMovieAltTitleInvalidMovieId() {
+		
+	}
+	
+	@Test(enabled=false)
+	public void testMovieAltTitleInvalidAPIKey() {
+		
+	}
+	
+	@Test(enabled=false)
+	public void testMovieAltTitleNoCountryParam() {
+		
+	}
+	//And many more
 }
 
