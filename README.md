@@ -5,4 +5,4 @@ Run "mvn test"
 
 # prerequisite
 You need java 8 +
-You should have maven3 installed.
+You should have maven3 installed. And you should have docker, if you want to run docker based test
